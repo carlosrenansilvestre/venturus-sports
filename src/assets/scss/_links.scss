@@ -1,0 +1,28 @@
+/*------------------------------------*\
+  Elements > Links
+\*------------------------------------*/
+
+@import './_mixins.scss';
+@import './_color.scss';
+
+a {
+	text-decoration: none;
+	color: $c-green;
+
+	&:hover {
+		@include transitioned;
+		color: #000;
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+	&.btn {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&:not([href]):not([tabindex]) {
+		text-decoration: none;
+	}
+}

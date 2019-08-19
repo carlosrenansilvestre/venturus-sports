@@ -1,0 +1,93 @@
+@import "../../../../assets/scss/_color.scss";
+
+header {
+  padding: 1rem 0;
+
+  .logo {
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 45px;
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      background-color: $c-green-dark;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      margin-right: 10px;
+
+      i {
+        color: #fff;
+        font-size: 26px;
+      }
+    }
+  }
+
+  .user-menu {
+    float: right;
+    position: relative;
+
+    .icon {
+      border: 2px solid #000;
+      border-radius: 34px;
+      padding: 5px 8px;
+      color: #000;
+      font-weight: 700;
+      font-size: 16px;
+      float: left;
+      text-align: center;
+      margin-right: 10px;
+    }
+
+    span {
+      line-height: 38px;
+      cursor: pointer;
+
+      &:after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        content: "\f078";
+        margin-left: 6px;
+      }
+    }
+
+    .drop-menu {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      width: 100%;
+      display: none;
+      background: #FFF;
+      box-shadow: 1px 1px 5px #ECECEC;
+
+      a {
+        color: $c-green-dark;
+        font-weight: 700;
+        display: block;
+        padding: 10px;
+
+        &:hover {
+          background-color: $c-green-dark;
+          color: #FFF;
+        }
+      }
+    }
+
+    &.opened {
+
+      .drop-menu {
+        display: block;
+      }
+      span {
+        &:after {
+          content: "\f077";
+        }
+      }
+    }
+
+    
+  }
+}

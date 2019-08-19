@@ -1,0 +1,22 @@
+// *----------------------------------*\
+//  Settings > Type
+// *----------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+$font-sans-serif: 'Roboto', sans-serif;
+
+$font-size-large:   19px;
+$font-size-base:    14px;
+$font-size-medium:  12px;
+$font-size-small:   11px;
+$font-size-tiny:    10px;
+
+$font-weight-light:   400;
+$font-weight-regular: 600;
+$font-weight-bold:    700;
+
+$line-height-base:    round($font-size-base    * 1.7);
+$line-height-medium:  round($font-size-medium  * 1.55);
+$line-height-small:   round($font-size-small   * 1.55);
+$line-height-tiny:    round($font-size-tiny    * 1.55);

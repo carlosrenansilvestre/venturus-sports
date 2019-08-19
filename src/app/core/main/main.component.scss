@@ -1,0 +1,65 @@
+@import '../../../assets/scss/_color.scss';
+
+.breadcrumb {
+  background-color: #f9f9f9;
+  font-weight: 700;
+  padding: 0.5rem 0 0.5rem 0;
+
+  .pages {
+    li {
+      float: left;
+      padding-left: 15px;
+      font-weight: 700;
+      font-size: 12px;
+
+      a {
+        margin: 0 15px 0 0;
+      }
+
+      &:after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        content: "\f054";
+      }
+
+      &:first-child {
+        padding: 0;
+      }
+
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.top-infos {
+  background: $c-green-light;
+  padding: 2rem 0 2rem 0;
+
+  .info {
+    p {
+      line-height: 19px;
+      padding-top: 4px;
+      margin: 0;
+    }
+
+    i {
+      float: left;
+      color: $c-green-dark;
+      font-size: 40px;
+      margin-right: 15px;
+    }
+
+    strong {
+      color: #666;
+
+      &.title {
+        font-size: 18px;
+        color: #000;
+      }
+    }
+  }
+}

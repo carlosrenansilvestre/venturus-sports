@@ -1,0 +1,112 @@
+<section class="new-user">
+  <div class="wrapper">
+    <div class="row">
+
+      <div class="column-12">
+        <div class="section-title user-title">
+          <h2>Registration</h2>
+          <div class="bar"></div>
+        </div>
+      </div>
+
+      <div class="column-12 user-top">
+        <div class="wrapper">
+          <div class="row">
+            <div class="column-4 column-sm-12 text">
+              <h3>Need help?</h3>
+              <p><i class="far fa-life-ring"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            </div>
+
+            <div class="column-4 column-sm-12 text">
+              <h3>Why register?</h3>
+              <p><i class="fas fa-heartbeat"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            </div>
+
+            <div class="column-4 column-sm-12 text">
+              <h3>What people are saying...</h3>
+              <p><i class="far fa-smile"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column-12">
+        <div class="wrapper">
+
+          <form class="row" [formGroup]="userForm" *ngIf="userForm" (ngSubmit)="saveUser()">
+
+            <div class="column-6 column-sm-12">
+              <div class="form-field">
+                <label>Username</label>
+                <input type="text" formControlName="username">
+                <p class="instructions">Instructions to show on input focus</p>
+              </div>
+              <div class="form-field">
+                <label>Name</label>
+                <input type="text" formControlName="name">
+                <p class="instructions">Instructions to show on input focus</p>
+              </div>
+              <div class="form-field">
+                <label>E-mail</label>
+                <input type="text" formControlName="email">
+                <p class="instructions">Instructions to show on input focus</p>
+              </div>
+            </div>
+
+            <div class="column-6 column-sm-12">
+              <div class="form-field">
+                <label>City</label>
+                <input type="text" formControlName="city">
+                <p class="instructions">Instructions to show on input focus</p>
+              </div>
+              <div class="form-field ride-in-group">
+                <label>Ride in group?</label><br />
+                <label class="custom-radio" for="Always">Always
+                  <input type="radio" formControlName="rideInGroup" value="Always" id="Always">
+                  <span class="radiomark"></span>
+                </label>
+                <label class="custom-radio" for="Sometimes">Sometimes
+                  <input type="radio" formControlName="rideInGroup" value="Sometimes" id="Sometimes">
+                  <span class="radiomark"></span>
+                </label>
+                <label class="custom-radio" for="Never">Never
+                  <input type="radio" formControlName="rideInGroup" value="Never" id="Never">
+                  <span class="radiomark"></span>
+                </label>
+                <p class="instructions">Instructions to show on input focus</p>
+              </div>
+
+              <div class="form-field days-of-week" *ngIf="userForm.controls && userForm.controls.daysOfweek">
+                <label>Days of week</label><br />
+                <ng-container formArrayName="daysOfweek"
+                  *ngFor="let day of userForm.controls.daysOfweek.controls; let i = index;">
+                  <label class="custom-checkbox" for="day_{{ daysOfweekList[i].id }}">{{ daysOfweekList[i].name }}
+                    <input type="checkbox" [formControlName]="i" id="day_{{ daysOfweekList[i].id }}">
+                    <span class="checkmark"></span>
+                  </label>
+                </ng-container>
+                <p class="instructions">Instructions to show on input focus</p>
+              </div>
+
+            </div>
+
+            <div class="column-12">
+              <button type="submit" class="green save">Save</button>
+              <button type="submit" class="gray">Discard</button>
+            </div>
+
+
+          </form>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

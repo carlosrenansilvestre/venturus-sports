@@ -1,0 +1,154 @@
+@import "./_color.scss";
+
+/*------------------------------------*\
+  Components > Inputs
+\*------------------------------------*/
+
+.form-field {
+  p.instructions {
+    opacity: 0;
+    margin: 0;
+    font-size: 11px;
+  }
+
+  input:focus + p {
+    opacity: 1;
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 700;
+    width: 100%;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  select,
+  textarea {
+    width: 100%;
+  }
+}
+
+.search-field {
+  position: relative;
+
+  i {
+    position: absolute;
+    left: 10px;
+    top: 13px;
+    color: #ccc;
+  }
+  input[type="text"] {
+    text-indent: 35px;
+    width: 100%;
+  }
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+  background-color: #fff;
+  border: 0;
+  height: 40px;
+  border-radius: 6px !important;
+  border: 1px solid #ccc;
+  //box-shadow: 0 0 5px #CCC !important;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 5px $c-green-light !important;
+  }
+
+  &.ng-invalid:not(.ng-pristine) {
+    box-shadow: 0 0 5px red !important;
+  }
+
+  &.ng-valid.ng-dirty {
+    box-shadow: 0 0 5px green !important;
+  }
+}
+
+.custom-checkbox,
+.custom-radio {
+  display: block;
+  position: relative;
+  padding: 4px 10px 0 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.custom-checkbox input,
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.radiomark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.custom-checkbox:hover input ~ .checkmark,
+.custom-radio:hover input ~ .radiomark {
+  border: 1px solid $c-green;
+}
+
+.custom-checkbox input:checked ~ .checkmark,
+.custom-radio input:checked ~ .radiomark {
+  border: 1px solid $c-green;
+}
+
+.checkmark:after,
+.radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after,
+.custom-radio input:checked ~ .radiomark:after {
+  display: block;
+}
+
+.custom-checkbox .checkmark:after {
+  left: 5px;
+  top: 0;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: "\f00c";
+}
+
+.custom-radio .radiomark:after {
+  left: 4px;
+  top: 0;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: "\f111";
+  font-size: 14px;
+}

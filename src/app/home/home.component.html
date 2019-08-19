@@ -1,0 +1,54 @@
+<section class="list-users">
+  <div class="wrapper users-top">
+    <div class="column-9 column-md-7 column-sm-12">
+      <div class="section-title user-title">
+        <h2>Users</h2>
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <div class="column-3 column-md-5 column-sm-12">
+      <div class="search-field">
+        <i class="fas fa-search"></i>
+        <input type="text" class="search" [(ngModel)]="userListFilter" placeholder="Filter table content" />
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="column-12">
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>City</th>
+              <th>Ride in group</th>
+              <th>Day of the week</th>
+              <th>Posts</th>
+              <th>Albums</th>
+              <th>Photos</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users | filter:'name,username,email': userListFilter">
+              <td>{{ user.name }}</td>
+              <td>{{ user.username }}</td>
+              <td><a href="mailto: {{ user.email }}">{{ user.email }}</a></td>
+              <td><a href="https://maps.google.com/?q={{ user.address?.geo?.lat }},{{ user.address?.geo?.lng }}" target="_blank">{{ user.address?.city }}</a></td>
+              <td>{{ '-' }}</td>
+              <td>{{ '-' }}</td>
+              <td><a>{{ user.posts.length }}</a></td>
+              <td><a>{{ user.albums.length }}</a></td>
+              <td>{{ user.photos.length }}</td>
+              <td class="icons"><a (click)="removeUser(user)"><i class="far fa-trash-alt"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

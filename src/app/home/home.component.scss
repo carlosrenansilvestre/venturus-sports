@@ -1,0 +1,18 @@
+@import "../../assets/scss/_color.scss";
+
+.list-users {
+
+  .users-top {
+    margin-bottom: 30px;
+    
+    .user-title {
+      margin-top: 5px;
+    }
+
+    .search-field {
+      .search {
+        width: 100%;
+      }
+    }
+  }
+}

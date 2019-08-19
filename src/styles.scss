@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+@import 'assets/scss/_color.scss';
+@import 'assets/scss/_global.scss';
+@import 'assets/scss/_spaces.scss';
+@import 'assets/scss/_type.scss';
+@import 'assets/scss/_mixins.scss';
+@import 'assets/scss/_box-sizing.scss';
+@import 'assets/scss/_normalize.scss';
+@import 'assets/scss/_shared.scss';
+@import 'assets/scss/_links.scss';
+@import 'assets/scss/_page.scss';
+@import 'assets/scss/_tables.scss';
+@import 'assets/scss/_grid.scss';
+@import 'assets/scss/_list.scss';
+@import 'assets/scss/_buttons.scss';
+@import 'assets/scss/_inputs.scss';
+@import 'assets/scss/_modals.scss';

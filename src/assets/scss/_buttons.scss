@@ -1,0 +1,40 @@
+/*------------------------------------*\
+  Components > Buttons
+\*------------------------------------*/
+
+button:hover {
+  @include transitioned;
+}
+
+button {
+  @include transitioned;
+  padding: 10px 25px;
+  border-radius: 5px;
+  border: 0;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.green {
+    background-color: $c-green;
+
+    &:hover {
+      background-color: darken($c-green, 10);
+      color: #fff;
+    }
+  }
+
+  &.gray {
+    background-color: $c-gray;
+    color: #000;
+
+    &:hover {
+      background-color: darken($c-gray, 10);
+    }
+  }
+}

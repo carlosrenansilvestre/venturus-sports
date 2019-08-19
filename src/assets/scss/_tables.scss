@@ -1,0 +1,69 @@
+/*------------------------------------*\
+  Elements > Tables
+\*------------------------------------*/
+.table {
+  width: 100%;
+  overflow-x: auto;
+
+  table {
+    border-spacing: 0;
+    border-collapse: inherit;
+    width: 100%;
+
+    thead {
+      border-bottom: 1px solid #9a9a9a;
+      tr {
+        border: 0;
+      }
+      th {
+        font-weight: bold;
+        font-size: 14px;
+        color: #000;
+        padding: 0.75rem;
+        border: 0;
+        text-align: left;
+      }
+    }
+
+    tbody {
+      tr {
+        justify-content: space-between;
+        line-height: 15px;
+        font-size: 14px;
+        color: #000;
+        cursor: default;
+        -webkit-transition: opacity 0.5s ease;
+        transition: all 0.5s ease;
+        font-weight: 700;
+
+        &:nth-child(odd) {
+          background-color: #f8f8f8;
+        }
+
+        &:hover {
+          background-color: #e3e3e3;
+
+          td.icons a {
+            opacity: 1;
+          }
+        }
+
+        &.action {
+          cursor: pointer;
+        }
+
+        td {
+          padding: 1rem 0.75rem;
+          line-height: 22px;
+          border: 0;
+
+          &.icons {
+            a {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

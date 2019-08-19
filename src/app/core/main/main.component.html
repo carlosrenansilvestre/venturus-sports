@@ -1,0 +1,67 @@
+<div class="main">
+
+  <app-navbar></app-navbar>
+
+  <section class="breadcrumb">
+    <div class="wrapper">
+      <div class="row">
+
+        <div class="column-12">
+          <ul class="pages">
+            <li><a><i class="fas fa-home"></i></a></li>
+            <li>Users</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="top-infos">
+
+    <div class="wrapper">
+      <div class="row">
+
+        <div class="column-2 column-md-4 column-sm-12">
+          <div class="info">
+            <i class="fas fa-puzzle-piece"></i>
+            <p>
+              <strong>Sport type</strong><br />
+              <strong class="title">Cycling</strong>
+            </p>
+          </div>
+        </div>
+        <div class="column-2 column-md-4 column-sm-12">
+          <div class="info">
+            <p>
+              <i class="fas fa-trophy"></i>
+              <strong>Mode</strong><br />
+              <strong class="title">Advanced</strong>
+            </p>
+          </div>
+        </div>
+        <div class="column-2 column-md-4 column-sm-12">
+          <div class="info">
+            <p>
+              <i class="fas fa-map-signs"></i>
+              <strong>Route</strong><br />
+              <strong class="title">30 miles</strong>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-footer></app-footer>
+
+</div>
+
+<app-loader></app-loader>

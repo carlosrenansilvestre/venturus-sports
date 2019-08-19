@@ -1,0 +1,31 @@
+<header>
+  <div class="wrapper">
+    <div class="row">
+      <div class="column-8 column-sm-12">
+        <div class="logo">
+          <div class="icon">
+            <i class="fas fa-volleyball-ball"></i>
+          </div>
+          Venturus Sports
+        </div>
+      </div>
+
+      <div class="column-4 column-sm-12">
+        <div class="user-menu" [ngClass]="{'opened': menuOpen}" (click)="menuOpen = !menuOpen">
+          <div class="icon">
+            JB
+          </div>
+          <span>Jason Bourne</span>
+
+          <div class="drop-menu">
+            <ul>
+              <li><a><i class="fas fa-user-circle"></i> Account</a></li>
+              <li><a><i class="fas fa-cog"></i> Settings</a></li>
+              <li><a><i class="fas fa-power-off"></i> Logoff</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
