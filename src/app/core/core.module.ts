@@ -13,9 +13,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CoreRoutingModule } from './core-routing.module';
 
-// Router
-import { RouterModule } from '@angular/router';
-
 // Services
 import { AuthService } from './services/auth.service';
 import { LoaderService } from './services/loader.service';

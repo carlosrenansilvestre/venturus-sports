@@ -37,12 +37,6 @@ export class ApiInterceptorService {
       return next.handle(request);
     }
 
-    if (customHeaders.length > 0) {
-      showLoader = !(customHeaders.indexOf("X-notLoader") >= 0);
-    } else {
-      showLoader = true;
-    }
-
     if (showLoader)
     this.loaderService.enable();
 

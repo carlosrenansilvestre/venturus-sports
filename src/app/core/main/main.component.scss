@@ -1,4 +1,4 @@
-@import '../../../assets/scss/_color.scss';
+@import "../../../assets/scss/color";
 
 .breadcrumb {
   background-color: #f9f9f9;
@@ -60,6 +60,14 @@
         font-size: 18px;
         color: #000;
       }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 2rem 0 2rem 0;
+
+    .info {
+      margin-bottom: 15px;
     }
   }
 }

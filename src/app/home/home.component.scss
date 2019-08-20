@@ -1,15 +1,19 @@
 @import "../../assets/scss/_color.scss";
+@import "../../assets/scss/_grid.scss";
 
 .list-users {
-
   .users-top {
     margin-bottom: 30px;
-    
+
     .user-title {
       margin-top: 5px;
     }
 
     .search-field {
+      @media only screen and (max-width: 480px) {
+        margin-top: 15px;
+      }
+
       .search {
         width: 100%;
       }

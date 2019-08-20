@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
     private router: Router
   ) { }
 
-  public menuState: boolean = false;
+  public menuOpen: boolean = false;
 
   ngOnInit() {
   }
