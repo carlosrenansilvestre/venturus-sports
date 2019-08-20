@@ -1,7 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, NavigationStart } from "@angular/router";
+import {
+  Router,
+  Event,
+  ActivationStart,
+  ActivatedRouteSnapshot,
+  ActivationEnd,
+  NavigationEnd,
+  NavigationStart
+} from "@angular/router";
 import { AuthService } from '../services/auth.service';
 import { Subscription } from 'rxjs';
+import { filter, pluck, buffer, map } from 'rxjs/operators';
+
+const isNavigationEnd = (ev: Event) => ev instanceof NavigationEnd;
+const isActivationEnd = (ev: Event) => ev instanceof ActivationEnd;
 
 @Component({
   selector: 'app-main',
@@ -10,11 +22,8 @@ import { Subscription } from 'rxjs';
 })
 export class MainComponent implements OnInit {
 
-  public isLogin: boolean = true;
-  public isUserLogged: boolean = false;
-  public exibeBusca: boolean = null;
-
-  public resetUserAuthSubcription = new Subscription;
+  bcLoadedData;
+  bcForDisplay;
 
   constructor(private router: Router, private authService: AuthService) {
     this.router.events.subscribe((e: any) => {
@@ -27,8 +36,26 @@ export class MainComponent implements OnInit {
 
       window.scrollTo(0, 0);
     });
-   }
+  }
+
+
 
   ngOnInit() {
+    const navigationEnd$ = this.router.events.pipe(filter(isNavigationEnd));
+
+    this.router.events
+      .pipe(
+        filter(isActivationEnd),
+        pluck("snapshot"),
+        pluck("data"),
+        buffer(navigationEnd$),
+        map((bcData: any[]) => bcData.reverse())
+      )
+      .subscribe(x => {
+        this.bcLoadedData = x;
+        console.log("OW", this.bcLoadedData);
+      });
   }
+
+
 }

@@ -1,6 +1,8 @@
 @import "../../../assets/scss/_color.scss";
 
 .new-user {
+  padding-top: 30px;
+  
   .section-title {
     margin-bottom: 30px;
   }
@@ -21,6 +23,10 @@
         margin-right: 15px;
         color: $c-green-dark;
       }
+
+      p {
+        line-height: 18px;
+      }
     }
   }
 
@@ -39,4 +45,11 @@
   .save {
     margin-right: 15px;
   }
+
+  .user-form {
+    border-top: 2px solid #CCC;
+    margin-top: 2rem;
+    padding-top: 3rem;
+  }
 }
+

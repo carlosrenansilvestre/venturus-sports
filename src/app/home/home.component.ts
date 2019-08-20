@@ -23,10 +23,14 @@ export class HomeComponent implements OnInit {
     this.getUsers();
 
     this.insertNewUserSubscription = this.homeService.insertNewUser.subscribe(obj => {
+      console.log(obj);
       obj.posts = [];
       obj.albums = [];
       obj.photos = [];
-      obj.address.city = obj.city;
+      if (obj.city) {
+        obj.address = {};
+        obj.address.city = obj.city;
+      }
       this.users.push(obj);
     });
   }
@@ -55,12 +59,16 @@ export class HomeComponent implements OnInit {
     let posts = this.homeService.getPosts();
     let albums = this.homeService.getAlbums();
     let photos = this.homeService.getPhotos();
-    let dados = await forkJoin([posts, albums, photos]).toPromise();
+    let daysofweek = this.homeService.getDaysOfWeek();
+    let dados = await forkJoin([posts, albums, photos, daysofweek]).toPromise();
+
+    console.log("daysofweek", dados[3]);
 
     users.forEach(user => {
       user.posts = [];
       user.albums = [];
       user.photos = [];
+      user.daysofweek = [];
 
       dados[0].forEach(post => {
         if (user.id == post.userId) {
@@ -79,8 +87,41 @@ export class HomeComponent implements OnInit {
           }
         });
       });
+
+      dados[3].forEach(userDaysOfWeek => {
+        if (user.id == userDaysOfWeek.userId) {
+          user.daysofweek = userDaysOfWeek.days;
+        }
+      });
     });
 
     this.users = users;
+
+    this.populateRideInGroup();
+
+    console.log("Usuários", this.users);
+  }
+
+  populateRideInGroup() {
+    this.users.forEach(user => {
+      user.rideInGroup = Math.floor(Math.random() * 3) + 1;
+    });
+  }
+
+  getRideInGroupName(id) {
+    switch (id) {
+      case 1:
+        return 'Always'
+        break;
+      case 2:
+        return 'Sometimes'
+        break;
+      case 3:
+        return 'Never'
+        break;
+      default:
+        return '-'
+        break;
+    }
   }
 }

@@ -38,11 +38,15 @@
               <td>{{ user.name }}</td>
               <td>{{ user.username }}</td>
               <td><a href="mailto: {{ user.email }}">{{ user.email }}</a></td>
-              <td><a href="https://maps.google.com/?q={{ user.address?.geo?.lat }},{{ user.address?.geo?.lng }}" target="_blank">{{ user.address?.city }}</a></td>
-              <td>{{ '-' }}</td>
-              <td>{{ '-' }}</td>
-              <td><a>{{ user.posts.length }}</a></td>
-              <td><a>{{ user.albums.length }}</a></td>
+              <td><a href="https://maps.google.com/?q={{ user.address?.geo?.lat }},{{ user.address?.geo?.lng }}"
+                  target="_blank">{{ user.address?.city }}</a></td>
+              <td>{{ getRideInGroupName(user.rideInGroup) }}</td>
+              <td>
+                <span [hidden]="user.daysofweek.length == 7" *ngFor="let day of user.daysofweek; let last = last">{{ day.name }}{{ last ? '' : ',' }} </span>
+                <span *ngIf="user.daysofweek.length == 7">Everdy day</span>
+              </td>
+              <td>{{ user.posts.length }}</td>
+              <td><a [routerLink]="['/album', user.id]">{{ user.albums.length }}</a></td>
               <td>{{ user.photos.length }}</td>
               <td class="icons"><a (click)="removeUser(user)"><i class="far fa-trash-alt"></i></a></td>
             </tr>
@@ -52,3 +56,5 @@
     </div>
   </div>
 </section>
+
+<app-new-user></app-new-user>

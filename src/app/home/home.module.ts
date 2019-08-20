@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { AlbumDetailComponent } from './album-detail/album-detail.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeService } from './home.service';
 
@@ -16,11 +17,13 @@ import { HomeService } from './home.service';
   ],
   declarations: [
     HomeComponent,
-    NewUserComponent
+    NewUserComponent,
+    AlbumDetailComponent
   ],
   exports: [
     HomeComponent,
-    NewUserComponent
+    NewUserComponent,
+    AlbumDetailComponent
   ],
   providers: [
     HomeService

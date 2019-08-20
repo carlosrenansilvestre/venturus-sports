@@ -1,0 +1,25 @@
+<section class="album-detail">
+  <div class="wrapper">
+    <div class="row">
+
+      <div class="column-12 album-title">
+        <div class="section-title">
+          <h2>Albums</h2>
+          <div class="bar"></div>
+        </div>
+      </div>
+
+      <div class="column-12">
+        <div class="album-detail" *ngFor="let album of albums">
+          <p>{{ album.title }} <a (click)="getAlbumPhotos(album);">see photos</a></p>
+          <div class="row photos" *ngIf="album.photos">
+            <div class="column-3 column-md-6 column-sm-12 img" *ngFor="let photo of album.photos">
+                <img src="{{ photo.thumbnailUrl }}" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

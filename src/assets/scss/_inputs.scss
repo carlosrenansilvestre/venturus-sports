@@ -16,7 +16,7 @@
   }
 
   label {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     width: 100%;
   }
@@ -57,17 +57,18 @@ textarea {
   border: 1px solid #ccc;
   //box-shadow: 0 0 5px #CCC !important;
   outline: none;
+  text-indent: 10px;
 
   &:focus {
-    box-shadow: 0 0 5px $c-green-light !important;
+    border-color: $c-green-dark;
   }
 
   &.ng-invalid:not(.ng-pristine) {
-    box-shadow: 0 0 5px red !important;
+    border-color: red;
   }
 
   &.ng-valid.ng-dirty {
-    box-shadow: 0 0 5px green !important;
+    border-color: $c-green-light;
   }
 }
 
@@ -116,12 +117,18 @@ textarea {
 
 .custom-checkbox:hover input ~ .checkmark,
 .custom-radio:hover input ~ .radiomark {
-  border: 1px solid $c-green;
+  border-color: $c-green;
 }
 
 .custom-checkbox input:checked ~ .checkmark,
 .custom-radio input:checked ~ .radiomark {
-  border: 1px solid $c-green;
+  border-color: $c-green;
+}
+
+.custom-checkbox .ng-invalid:not(.ng-pristine) ~ .checkmark,
+.custom-radio .ng-invalid:not(.ng-pristine) ~ .radiomark,
+.custom-checkbox.ng-invalid:not(.ng-pristine) .checkmark {
+  border-color: red;
 }
 
 .checkmark:after,
@@ -150,5 +157,5 @@ textarea {
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
   content: "\f111";
-  font-size: 14px;
+  font-size: 15px;
 }

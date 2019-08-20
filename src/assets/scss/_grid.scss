@@ -39,6 +39,12 @@ img {
   padding: 0 1em;
   width: 100%;
   min-height: 1px;
+
+  &.col-auto {
+    float: none;
+    margin: 0 auto;
+    clear: both;
+  }
 }
 
 @for $i from 1 through 12{

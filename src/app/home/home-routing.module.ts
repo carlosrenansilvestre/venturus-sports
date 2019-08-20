@@ -3,16 +3,18 @@ import { RouterModule, Routes } from "@angular/router";
 
 //app Component
 import { HomeComponent } from "./home.component";
-import { NewUserComponent } from "./new-user/new-user.component";
+import { AlbumDetailComponent } from "./album-detail/album-detail.component";
 
 const HomeRoutes: Routes = [
   {
     path: "",
-    component: HomeComponent
+    component: HomeComponent, 
+    data: { bc: 'Users' }
   },
   {
-    path: 'registration',
-    component: NewUserComponent
+    path: 'album/:userId',
+    component: AlbumDetailComponent, 
+    data: { bc: 'Album Detail' }
   }
 ];
 

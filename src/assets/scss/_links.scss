@@ -11,7 +11,7 @@ a {
 
 	&:hover {
 		@include transitioned;
-		color: #000;
+		color: $c-green-dark;
 		cursor: pointer;
 		text-decoration: underline;
 	}
@@ -23,6 +23,6 @@ a {
 	}
 
 	&:not([href]):not([tabindex]) {
-		text-decoration: none;
+		text-decoration: underline;
 	}
 }

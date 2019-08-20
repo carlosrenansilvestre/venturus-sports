@@ -19,5 +19,6 @@ export interface User {
     name: string,
     catchPhrase: string,
     bs: string
-  }
+  },
+  rideInGroup: number
 }

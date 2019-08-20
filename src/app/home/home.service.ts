@@ -8,7 +8,7 @@ import { User } from '../shared/models/user.model';
 import { Post } from '../shared/models/post.model';
 import { Album } from '../shared/models/album.model';
 import { Photo } from '../shared/models/photo.model';
-import { Subject } from "rxjs";
+import { Subject, Observable, of } from "rxjs";
 
 @Injectable()
 export class HomeService {
@@ -52,6 +52,85 @@ export class HomeService {
       }),
       catchError((error: any) => throwError(error))
     );
+  }
+
+  getAlbumByUserId(userId) {
+    return this.http.get<Album[]>(this.apiBaseUrl + "albums?userId=" + userId).pipe(
+      map(response => {
+        return response;
+      }),
+      catchError((error: any) => throwError(error))
+    );
+  }
+
+  getAlbumPhotos(albumId) {
+    return this.http.get<Photo[]>(this.apiBaseUrl + "photos?albumId=" + albumId).pipe(
+      map(response => {
+        return response;
+      }),
+      catchError((error: any) => throwError(error))
+    );
+  }
+
+  getDaysOfWeek(): Observable<any> {
+    let daysofweek =
+      [
+        {
+          "userId": 1,
+          "id": 1,
+          "days": [
+            { name: 'Sun', id: 1 },
+            { name: 'Mon', id: 2 },
+            { name: 'Tue', id: 3 },
+          ]
+        },
+        {
+          "userId": 2,
+          "id": 2,
+          "days": [
+            { name: 'Sun', id: 1 },
+            { name: 'Mon', id: 2 },
+            { name: 'Tue', id: 3 },
+            { name: 'Wed', id: 4 },
+            { name: 'Thu', id: 5 },
+            { name: 'Fri', id: 6 },
+            { name: 'Sat', id: 7 }
+          ]
+        },
+        {
+          "userId": 3,
+          "id": 3,
+          "days": [
+            { name: 'Sun', id: 1 },
+            { name: 'Mon', id: 2 },
+            { name: 'Tue', id: 3 },
+            { name: 'Fri', id: 6 }
+          ]
+        },
+        {
+          "userId": 4,
+          "id": 4,
+          "days": [
+            { name: 'Sun', id: 1 },
+            { name: 'Tue', id: 3 },
+            { name: 'Thu', id: 5 },
+            { name: 'Fri', id: 6 }
+          ]
+        },
+        {
+          "userId": 5,
+          "id": 5,
+          "days": [
+            { name: 'Sun', id: 1 },
+            { name: 'Mon', id: 2 },
+            { name: 'Tue', id: 3 },
+            { name: 'Wed', id: 4 },
+            { name: 'Thu', id: 5 }
+          ]
+        },
+      ]
+
+    return of(daysofweek);
   }
 
 }

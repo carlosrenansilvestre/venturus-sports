@@ -14,30 +14,33 @@
           <div class="row">
             <div class="column-4 column-sm-12 text">
               <h3>Need help?</h3>
-              <p><i class="far fa-life-ring"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.</p>
+              <p><i class="far fa-life-ring"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
 
             <div class="column-4 column-sm-12 text">
               <h3>Why register?</h3>
-              <p><i class="fas fa-heartbeat"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.</p>
+              <p><i class="fas fa-heartbeat"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
 
             <div class="column-4 column-sm-12 text">
               <h3>What people are saying...</h3>
-              <p><i class="far fa-smile"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.</p>
+              <p><i class="far fa-smile"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
           </div>
         </div>
       </div>
 
 
-      <div class="column-12">
+      <div class="column-8 col-auto">
         <div class="wrapper">
 
-          <form class="row" [formGroup]="userForm" *ngIf="userForm" (ngSubmit)="saveUser()">
+          <form class="row user-form" [formGroup]="userForm" *ngIf="userForm" (ngSubmit)="saveUser()">
 
             <div class="column-6 column-sm-12">
               <div class="form-field">
@@ -66,15 +69,15 @@
               <div class="form-field ride-in-group">
                 <label>Ride in group?</label><br />
                 <label class="custom-radio" for="Always">Always
-                  <input type="radio" formControlName="rideInGroup" value="Always" id="Always">
+                  <input type="radio" formControlName="rideInGroup" value="1" id="Always">
                   <span class="radiomark"></span>
                 </label>
                 <label class="custom-radio" for="Sometimes">Sometimes
-                  <input type="radio" formControlName="rideInGroup" value="Sometimes" id="Sometimes">
+                  <input type="radio" formControlName="rideInGroup" value="2" id="Sometimes">
                   <span class="radiomark"></span>
                 </label>
                 <label class="custom-radio" for="Never">Never
-                  <input type="radio" formControlName="rideInGroup" value="Never" id="Never">
+                  <input type="radio" formControlName="rideInGroup" value="3" id="Never">
                   <span class="radiomark"></span>
                 </label>
                 <p class="instructions">Instructions to show on input focus</p>
@@ -82,13 +85,12 @@
 
               <div class="form-field days-of-week" *ngIf="userForm.controls && userForm.controls.daysOfweek">
                 <label>Days of week</label><br />
-                <ng-container formArrayName="daysOfweek"
-                  *ngFor="let day of userForm.controls.daysOfweek.controls; let i = index;">
-                  <label class="custom-checkbox" for="day_{{ daysOfweekList[i].id }}">{{ daysOfweekList[i].name }}
-                    <input type="checkbox" [formControlName]="i" id="day_{{ daysOfweekList[i].id }}">
-                    <span class="checkmark"></span>
-                  </label>
-                </ng-container>
+                <label formArrayName="daysOfweek"
+                  *ngFor="let day of userForm.controls.daysOfweek.controls; let i = index;" class="custom-checkbox"
+                  for="day_{{ daysOfweekList[i].id }}">{{ daysOfweekList[i].name }}
+                  <input type="checkbox" [formControlName]="i" id="day_{{ daysOfweekList[i].id }}">
+                  <span class="checkmark"></span>
+                </label>
                 <p class="instructions">Instructions to show on input focus</p>
               </div>
 
@@ -96,7 +98,7 @@
 
             <div class="column-12">
               <button type="submit" class="green save">Save</button>
-              <button type="submit" class="gray">Discard</button>
+              <button type="button" class="gray" (click)="userForm.reset()">Discard</button>
             </div>
 
 

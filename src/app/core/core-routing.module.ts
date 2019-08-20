@@ -7,13 +7,9 @@ import { HomeGuardService } from './guards/home-guard.service';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: '../home/home.module#HomeModule'
-  },
-  // {
-  //   path: 'registration',
-  //   canActivate: [HomeGuardService],
-  //   loadChildren: '../home/home.module#HomeModule'
-  // }
+    loadChildren: '../home/home.module#HomeModule', 
+    data: { bc: 'Home'}
+  }
 ];
 
 RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'});

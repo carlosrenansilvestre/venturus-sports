@@ -8,8 +8,12 @@
 
         <div class="column-12">
           <ul class="pages">
-            <li><a><i class="fas fa-home"></i></a></li>
-            <li>Users</li>
+            <!-- <li><a><i class="fas fa-home"></i></a></li>
+            <li>Users</li> -->
+            <li *ngFor="let bcElement of bcLoadedData; let last = last">
+              <a *ngIf="bcElement.bc == 'Home'"[routerLink]="['/']"><i class="fas fa-home"></i></a>
+              {{ bcElement.bc == 'Home' ? '' : bcElement.bc }}
+            </li>
           </ul>
         </div>
 
